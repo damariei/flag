@@ -26,13 +26,14 @@ export class ConnectedFlagsProvider extends React.Component<{}, ConnectedFlagsPr
     this.store = this.context.store as Store<ConnectedFlagsProviderState>;
     this.setState({ flags: this.store.getState().flags });
 
-    this.unsubscribe = this.store.subscribe(() => {
-      this.setState({ flags: this.store.getState().flags });
-    });
+    // BROKEN
+    //     this.unsubscribe = this.store.subscribe(() => {
+    //       this.setState({ flags: this.store.getState().flags });
+    //     });
   }
 
   public componentWillUnmount() {
-    this.unsubscribe();
+    //this.unsubscribe();
   }
 
   public render() {
